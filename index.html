@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irfan Ullah Khan | AI-Integrated Educator</title>
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portfolio-wrapper {
+      max-width: 1200px;
+      width: 100%;
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(2px);
+      border-radius: 3rem 3rem 2rem 2rem;
+      padding: 2rem 2rem 3rem;
+      box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(56, 189, 248, 0.15);
+      transition: all 0.2s;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* 3D tilt / glass effect */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    /* ---- header with photo ---- */
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .image-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.5), 0 0 60px rgba(56, 189, 248, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-container img:hover {
+      transform: scale(1.02) rotate(2deg);
+      box-shadow: 0 0 40px #38bdf8, 0 0 80px #0ea5e9;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .title-group {
+      text-align: left;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .title-group h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0f9ff, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+      display: inline-block;
+      margin-bottom: 0.25rem;
+    }
+
+    .title-group h2 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 0.2rem;
+    }
+
+    .title-group h2 i {
+      color: #38bdf8;
+      margin-right: 4px;
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .badge-container span {
+      background: #1e293b;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #334155;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: 0.2s;
+    }
+
+    .badge-container span i {
+      color: #38bdf8;
+    }
+
+    .badge-container span:hover {
+      background: #2d3b52;
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+
+    /* summary */
+    .summary-box {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(3px);
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 2.5rem;
+      border-left: 6px solid #38bdf8;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+      transition: 0.3s;
+    }
+
+    .summary-box:hover {
+      border-left-color: #7dd3fc;
+      background: rgba(38, 52, 77, 0.7);
+    }
+
+    .summary-box p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+
+    .summary-box i {
+      color: #38bdf8;
+      margin-right: 8px;
+    }
+
+    /* grid sections */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid #1e293b;
+      padding-bottom: 0.6rem;
+    }
+    .section-title i {
+      color: #38bdf8;
+      font-size: 1.8rem;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .skill-card, .exp-card, .edu-card {
+      background: #1e293b;
+      border-radius: 1.8rem;
+      padding: 1.5rem 1.6rem;
+      transition: all 0.25s ease;
+      border: 1px solid #2d3b52;
+      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::after, .exp-card::after, .edu-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #38bdf8, #7dd3fc, #38bdf8);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    .skill-card:hover, .exp-card:hover, .edu-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: #38bdf8;
+      box-shadow: 0 18px 30px -8px #0ea5e9;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-title i {
+      color: #38bdf8;
+      font-size: 1.4rem;
+    }
+
+    .card-sub {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-card ul, .skill-card ul {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .exp-card li, .skill-card li {
+      padding: 0.25rem 0;
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      font-size: 0.96rem;
+      border-bottom: 1px solid #2d3b52;
+    }
+
+    .exp-card li:last-child, .skill-card li:last-child {
+      border-bottom: none;
+    }
+
+    .exp-card li i, .skill-card li i {
+      color: #38bdf8;
+      margin-top: 0.2rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .chip {
+      background: #0f172a;
+      border-radius: 40px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #7dd3fc;
+      display: inline-block;
+      border: 1px solid #38bdf8;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    /* strengths */
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .strength-item {
+      background: #1e293b;
+      padding: 0.7rem 1rem;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #334155;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .strength-item i {
+      color: #38bdf8;
+      font-size: 1.2rem;
+    }
+
+    .strength-item:hover {
+      background: #2d3b52;
+      border-color: #38bdf8;
+    }
+
+    /* ref cards */
+    .ref-card {
+      background: #1e293b;
+      border-radius: 1.8rem;
+      padding: 1.4rem;
+      border: 1px solid #2d3b52;
+      transition: 0.2s;
+    }
+    .ref-card:hover {
+      border-color: #38bdf8;
+      background: #26334d;
+    }
+    .ref-card i {
+      color: #38bdf8;
+      margin-right: 8px;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      color: #64748b;
+      border-top: 1px solid #1e293b;
+      padding-top: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-note i {
+      color: #38bdf8;
+      margin: 0 6px;
+    }
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1rem;
+      color: #cbd5e1;
+      margin-bottom: 0.8rem;
+    }
+    .contact-line i {
+      margin-right: 6px;
+      color: #7dd3fc;
+    }
+    a {
+      color: #7dd3fc;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    a:hover {
+      color: #bae6fd;
+      text-shadow: 0 0 8px #38bdf8;
+    }
+
+    @media (max-width: 640px) {
+      .title-group h1 {
+        font-size: 2.2rem;
+      }
+      .portfolio-wrapper {
+        padding: 1.5rem;
+      }
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .title-group {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="portfolio-wrapper">
+  <!-- Header with photo -->
+  <div class="profile-header">
+    <div class="image-container">
+      <!-- Using the same photo as requested (base64 or URL) – I'll embed via placeholder but using the image from the prompt -->
+      <img src="irfan.png" alt="Irfan Ullah Khan" 
+           style="background: #1e293b; object-fit: cover;"
+           onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Ccircle cx=%22100%22 cy=%22100%22 r=%2290%22 fill=%22%233b82f6%22/%3E%3Ctext x=%22100%22 y=%22115%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22%3EIK%3C/text%3E%3C/svg%3E';">
+    </div>
+    <div class="title-group">
+      <h1>IRFAN ULLAH KHAN</h1>
+      <h2><i class="fas fa-chalkboard-teacher"></i> Urdu & Computer Instructor · AI-Integrated Educator</h2>
+      <div class="badge-container">
+        <span><i class="fas fa-map-pin"></i> Peshawar</span>
+        <span><i class="fas fa-phone-alt"></i> +92 311 9690936</span>
+        <span><i class="fas fa-envelope"></i> programmarself@gmail.com</span>
+        <span><i class="fas fa-graduation-cap"></i> MA Urdu · BS CS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- summary -->
+  <div class="summary-box">
+    <p><i class="fas fa-quote-left"></i> Results-driven educator with dual expertise in Urdu language & Computer Science. Integrating AI-assisted tools & smart classroom tech to foster communication, digital literacy, and academic excellence. <i class="fas fa-quote-right"></i></p>
+  </div>
+
+  <!-- core competencies -->
+  <div class="section-title"><i class="fas fa-microchip"></i> Core Competencies</div>
+  <div class="grid-2col">
+    <div class="skill-card"><div class="card-title"><i class="fas fa-book-open"></i> Education & Instruction</div>
+      <ul>
+        <li><i class="fas fa-feather-alt"></i> Urdu Grammar, Literature & Composition</li>
+        <li><i class="fas fa-laptop-code"></i> Computer Science & IT Fundamentals</li>
+        <li><i class="fas fa-users-cog"></i> Classroom Management & Curriculum</li>
+        <li><i class="fas fa-file-alt"></i> Assessment & Paper Setting</li>
+        <li><i class="fas fa-chalkboard"></i> Smart Classroom & Interactive Learning</li>
+      </ul>
+    </div>
+    <div class="skill-card"><div class="card-title"><i class="fas fa-tools"></i> Technology & Digital</div>
+      <ul>
+        <li><i class="fab fa-microsoft"></i> MS Word, Excel, PowerPoint</li>
+        <li><i class="fas fa-pen-fancy"></i> InPage (Urdu/English/Arabic)</li>
+        <li><i class="fas fa-robot"></i> AI Tools for Education</li>
+        <li><i class="fas fa-globe"></i> Web & App Development Basics</li>
+        <li><i class="fas fa-network-wired"></i> Digital Learning Platforms</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- experience -->
+  <div class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</div>
+  <div class="grid-2col">
+    <div class="exp-card"><div class="card-title"><i class="fas fa-school"></i> Urdu Teacher</div>
+      <div class="card-sub">Iqra Public High School · 2025–2026</div>
+      <ul><li><i class="fas fa-check-circle"></i> Urdu grammar, literature & composition</li>
+          <li><i class="fas fa-check-circle"></i> Interactive & tech-supported teaching</li>
+          <li><i class="fas fa-check-circle"></i> Exam papers, notes & worksheets</li>
+      </ul>
+    </div>
+    <div class="exp-card"><div class="card-title"><i class="fas fa-laptop"></i> Computer Instructor</div>
+      <div class="card-sub">Govt Technical & Vocational College · 2015</div>
+      <ul><li><i class="fas fa-check-circle"></i> DIT, CIT, MS Office & IT fundamentals</li>
+          <li><i class="fas fa-check-circle"></i> Practical training & digital lab supervision</li>
+          <li><i class="fas fa-check-circle"></i> Instructional materials & assessments</li>
+      </ul>
+    </div>
+    <div class="exp-card"><div class="card-title"><i class="fas fa-pencil-alt"></i> Computer Teacher & Composer</div>
+      <div class="card-sub">JD Public School · 2011–2012</div>
+      <ul><li><i class="fas fa-check-circle"></i> Computer applications, typing, IT skills</li>
+          <li><i class="fas fa-check-circle"></i> InPage composing (Urdu/English/Arabic)</li>
+          <li><i class="fas fa-check-circle"></i> Notes, assignments & digital content</li>
+      </ul>
+    </div>
+    <div class="exp-card"><div class="card-title"><i class="fas fa-user-tie"></i> Computer Operator</div>
+      <div class="card-sub">MB Traders / UTH · 2016–2021</div>
+      <ul><li><i class="fas fa-check-circle"></i> Office documentation & digital records</li>
+          <li><i class="fas fa-check-circle"></i> Data entry, MS Office, admin support</li>
+          <li><i class="fas fa-check-circle"></i> Reporting & correspondence</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- education + certs -->
+  <div class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</div>
+  <div class="grid-2col">
+    <div class="edu-card"><div class="card-title"><i class="fas fa-university"></i> MA Urdu</div>
+      <div>University of Lakki Marwat</div>
+      <div class="card-sub" style="margin-top: 6px;"><i class="fas fa-certificate"></i> BS Computer Science · Virtual University</div>
+      <div class="card-sub"><i class="fas fa-certificate"></i> ICS (Computer Science) · Govt College</div>
+    </div>
+    <div class="edu-card"><div class="card-title"><i class="fas fa-certificate"></i> Professional</div>
+      <ul><li><i class="fas fa-check-circle"></i> Diploma in Information Technology (DIT)</li>
+          <li><i class="fas fa-check-circle"></i> Certificate in Information Technology (CIT)</li>
+          <li><i class="fas fa-check-circle"></i> IT Technical Course (2021)</li>
+          <li><i class="fas fa-check-circle"></i> Creative Designing Course (2021)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- strengths -->
+  <div class="section-title"><i class="fas fa-star"></i> Professional Strengths</div>
+  <div class="strength-grid">
+    <div class="strength-item"><i class="fas fa-check-double"></i> Dual Expertise: Urdu & CS</div>
+    <div class="strength-item"><i class="fas fa-robot"></i> AI-Assisted Teaching</div>
+    <div class="strength-item"><i class="fas fa-users"></i> Classroom Management</div>
+    <div class="strength-item"><i class="fas fa-pen-nib"></i> Urdu/English/Arabic Composing</div>
+    <div class="strength-item"><i class="fas fa-file-alt"></i> Educational Content Development</div>
+    <div class="strength-item"><i class="fas fa-laptop"></i> Practical IT Training</div>
+    <div class="strength-item"><i class="fas fa-digital-tiling"></i> Digital Literacy</div>
+    <div class="strength-item"><i class="fas fa-comments"></i> Strong Communication</div>
+  </div>
+
+  <!-- languages / interests -->
+  <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
+    <div style="flex:1; min-width:160px;">
+      <div class="card-title" style="margin-bottom: 0.3rem;"><i class="fas fa-language"></i> Languages</div>
+      <div><span class="chip">Urdu</span> <span class="chip">Pashto</span> <span class="chip">English</span></div>
+    </div>
+    <div style="flex:2; min-width:200px;">
+      <div class="card-title" style="margin-bottom: 0.3rem;"><i class="fas fa-heart"></i> Interests</div>
+      <div><span class="chip">Urdu Literature</span> <span class="chip">EdTech</span> <span class="chip">AI in Education</span> <span class="chip">Digital Learning</span></div>
+    </div>
+  </div>
+
+  <!-- references -->
+  <div class="section-title"><i class="fas fa-address-card"></i> References</div>
+  <div class="grid-2col">
+    <div class="ref-card"><i class="fas fa-user-circle"></i> <strong>Dr. Nadia Tabassum</strong><br>
+      <span style="font-size:0.9rem; color:#94a3b8;">Assistant Professor, CS · Virtual University</span><br>
+      <i class="fas fa-envelope"></i> nadiatabassum@vu.edu.pk <br>
+      <i class="fas fa-phone"></i> +92 42 99201505
+    </div>
+    <div class="ref-card"><i class="fas fa-user-circle"></i> <strong>Dr. Muhammad Salman Bashir</strong><br>
+      <span style="font-size:0.9rem; color:#94a3b8;">Assistant Professor · Virtual University</span><br>
+      <i class="fas fa-envelope"></i> salmanbashir@vu.edu.pk <br>
+      <i class="fas fa-phone"></i> +92 42 99201505
+    </div>
+  </div>
+
+  <!-- footer contact -->
+  <div class="footer-note">
+    <div class="contact-line">
+      <span><i class="fas fa-phone-alt"></i> +92 311 9690936</span>
+      <span><i class="fas fa-envelope"></i> programmarself@gmail.com</span>
+      <span><i class="fas fa-map-marker-alt"></i> Peshawar</span>
+    </div>
+    <div>
+      <i class="fas fa-code"></i> AI-Integrated Educator · <i class="fas fa-laptop"></i> MA Urdu · BS CS
+    </div>
+    <div style="margin-top: 0.6rem; font-size: 0.8rem; opacity:0.6;">
+      <i class="fas fa-crown"></i> Irfan Ullah Khan · 2026
+    </div>
+  </div>
+</div>
+
+<!-- tiny script for 3D interactive effect (light) -->
+<script>
+  (function() {
+    const wrapper = document.querySelector('.portfolio-wrapper');
+    let timeout;
+    wrapper.addEventListener('mousemove', (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      wrapper.style.transform = `rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+      wrapper.style.transition = 'transform 0.08s';
+    });
+    wrapper.addEventListener('mouseleave', () => {
+      wrapper.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      wrapper.style.transition = 'transform 0.3s';
+    });
+  })();
+</script>
+
+</body>
+</html>
