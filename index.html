@@ -176,6 +176,40 @@
       margin-right: 8px;
     }
 
+    /* CV Button */
+    .cv-button-container {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .cv-btn {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #0f172a;
+      padding: 0.8rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+    }
+
+    .cv-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.6);
+      background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+    }
+
+    .cv-btn i {
+      font-size: 1.3rem;
+    }
+
     /* grid sections */
     .section-title {
       font-size: 1.8rem;
@@ -199,7 +233,7 @@
       gap: 1.8rem;
     }
 
-    .skill-card, .exp-card, .edu-card {
+    .skill-card, .exp-card, .edu-card, .project-card {
       background: #1e293b;
       border-radius: 1.8rem;
       padding: 1.5rem 1.6rem;
@@ -210,7 +244,7 @@
       overflow: hidden;
     }
 
-    .skill-card::after, .exp-card::after, .edu-card::after {
+    .skill-card::after, .exp-card::after, .edu-card::after, .project-card::after {
       content: '';
       position: absolute;
       top: 0;
@@ -228,7 +262,7 @@
       100% { background-position: 200% 0%; }
     }
 
-    .skill-card:hover, .exp-card:hover, .edu-card:hover {
+    .skill-card:hover, .exp-card:hover, .edu-card:hover, .project-card:hover {
       transform: translateY(-6px) scale(1.01);
       border-color: #38bdf8;
       box-shadow: 0 18px 30px -8px #0ea5e9;
@@ -254,12 +288,12 @@
       margin-bottom: 0.25rem;
     }
 
-    .exp-card ul, .skill-card ul {
+    .exp-card ul, .skill-card ul, .project-card ul {
       list-style: none;
       margin-top: 0.6rem;
     }
 
-    .exp-card li, .skill-card li {
+    .exp-card li, .skill-card li, .project-card li {
       padding: 0.25rem 0;
       display: flex;
       align-items: start;
@@ -268,15 +302,27 @@
       border-bottom: 1px solid #2d3b52;
     }
 
-    .exp-card li:last-child, .skill-card li:last-child {
+    .exp-card li:last-child, .skill-card li:last-child, .project-card li:last-child {
       border-bottom: none;
     }
 
-    .exp-card li i, .skill-card li i {
+    .exp-card li i, .skill-card li i, .project-card li i {
       color: #38bdf8;
       margin-top: 0.2rem;
       width: 20px;
       text-align: center;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: #0f172a;
+      padding: 0.15rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #7dd3fc;
+      border: 1px solid #38bdf8;
+      margin-left: 6px;
     }
 
     .chip {
@@ -398,7 +444,6 @@
   <!-- Header with photo -->
   <div class="profile-header">
     <div class="image-container">
-      <!-- Using the same photo as requested (base64 or URL) – I'll embed via placeholder but using the image from the prompt -->
       <img src="irfan.png" alt="Irfan Ullah Khan" 
            style="background: #1e293b; object-fit: cover;"
            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Ccircle cx=%22100%22 cy=%22100%22 r=%2290%22 fill=%22%233b82f6%22/%3E%3Ctext x=%22100%22 y=%22115%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22%3EIK%3C/text%3E%3C/svg%3E';">
@@ -413,6 +458,13 @@
         <span><i class="fas fa-graduation-cap"></i> MA Urdu · BS CS</span>
       </div>
     </div>
+  </div>
+
+  <!-- CV Download Button -->
+  <div class="cv-button-container">
+    <a href="#" class="cv-btn" onclick="downloadCV()">
+      <i class="fas fa-file-pdf"></i> Download CV
+    </a>
   </div>
 
   <!-- summary -->
@@ -436,9 +488,52 @@
       <ul>
         <li><i class="fab fa-microsoft"></i> MS Word, Excel, PowerPoint</li>
         <li><i class="fas fa-pen-fancy"></i> InPage (Urdu/English/Arabic)</li>
-        <li><i class="fas fa-robot"></i> AI Tools for Education</li>
+        <li><i class="fas fa-robot"></i> AI Tools for Education (ChatGPT, Gemini, Claude)</li>
         <li><i class="fas fa-globe"></i> Web & App Development Basics</li>
-        <li><i class="fas fa-network-wired"></i> Digital Learning Platforms</li>
+        <li><i class="fas fa-network-wired"></i> Digital Learning Platforms (Zoom, Google Meet)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="section-title"><i class="fas fa-project-diagram"></i> Projects & Trainings</div>
+  <div class="grid-2col">
+    <div class="project-card">
+      <div class="card-title"><i class="fas fa-chalkboard-teacher"></i> AI-Enabled Teacher Training <span class="project-tag">Paid</span></div>
+      <div class="card-sub">2026 · Zoom · 40-50 Participants</div>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Trained educators on AI tools (ChatGPT, Gemini, Claude) for teaching</li>
+        <li><i class="fas fa-check-circle"></i> Covered lesson planning, grading, and content creation with AI</li>
+        <li><i class="fas fa-check-circle"></i> Interactive live sessions with practical demonstrations</li>
+        <li><i class="fas fa-check-circle"></i> Provided certificate of completion to all participants</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <div class="card-title"><i class="fas fa-users"></i> AI Training for Educators <span class="project-tag">Paid</span></div>
+      <div class="card-sub">2025 · Zoom · 20-30 Participants</div>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Conducted specialized AI training for teachers and instructors</li>
+        <li><i class="fas fa-check-circle"></i> Focused on integrating AI into daily classroom activities</li>
+        <li><i class="fas fa-check-circle"></i> Hands-on workshops for creating AI-powered worksheets</li>
+        <li><i class="fas fa-check-circle"></i> Received excellent feedback from participants</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <div class="card-title"><i class="fas fa-globe"></i> Urdu Digital Literacy Program</div>
+      <div class="card-sub">2024 · In-Person · 60+ Students</div>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Taught digital skills to Urdu medium students</li>
+        <li><i class="fas fa-check-circle"></i> Focused on safe internet usage and MS Office basics</li>
+        <li><i class="fas fa-check-circle"></i> Created bilingual learning materials</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <div class="card-title"><i class="fas fa-laptop-code"></i> Computer Basics for Beginners</div>
+      <div class="card-sub">2023 · Community Center · 35+ Learners</div>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Basic computer literacy for adult learners</li>
+        <li><i class="fas fa-check-circle"></i> Typing, file management, and internet skills</li>
+        <li><i class="fas fa-check-circle"></i> 90% participants improved their digital literacy</li>
       </ul>
     </div>
   </div>
@@ -489,6 +584,7 @@
           <li><i class="fas fa-check-circle"></i> Certificate in Information Technology (CIT)</li>
           <li><i class="fas fa-check-circle"></i> IT Technical Course (2021)</li>
           <li><i class="fas fa-check-circle"></i> Creative Designing Course (2021)</li>
+          <li><i class="fas fa-check-circle"></i> AI for Educators Certification (2025)</li>
       </ul>
     </div>
   </div>
@@ -566,6 +662,66 @@
       wrapper.style.transition = 'transform 0.3s';
     });
   })();
+
+  // CV Download Function
+  function downloadCV() {
+    // Create a simple CV text content
+    const cvContent = `
+      IRFAN ULLAH KHAN
+      ================
+      Urdu & Computer Instructor | AI-Integrated Educator
+      
+      Contact: +92 311 9690936 | programmarself@gmail.com | Peshawar
+      
+      EDUCATION
+      ---------
+      MA Urdu - University of Lakki Marwat
+      BS Computer Science - Virtual University of Pakistan
+      ICS (Computer Science) - Govt College, Dera Ismail Khan
+      
+      PROFESSIONAL EXPERIENCE
+      -----------------------
+      Urdu Teacher - Iqra Public High School (2025-2026)
+      Computer Instructor - Govt Technical & Vocational College (2015)
+      Computer Teacher & Composer - JD Public School (2011-2012)
+      Computer Operator - MB Traders / UTH (2016-2021)
+      
+      PROJECTS & TRAININGS
+      --------------------
+      AI-Enabled Teacher Training (2026) - 40-50 participants, Paid
+      AI Training for Educators (2025) - 20-30 participants, Paid
+      Urdu Digital Literacy Program (2024) - 60+ students
+      Computer Basics for Beginners (2023) - 35+ learners
+      
+      CERTIFICATIONS
+      --------------
+      DIT (Diploma in Information Technology)
+      CIT (Certificate in Information Technology)
+      IT Technical Course (2021)
+      Creative Designing Course (2021)
+      AI for Educators Certification (2025)
+      
+      LANGUAGES
+      ---------
+      Urdu, Pashto, English
+      
+      REFERENCES
+      ----------
+      Dr. Nadia Tabassum - Virtual University
+      Dr. Muhammad Salman Bashir - Virtual University
+    `;
+
+    // Create a blob and download as text file
+    const blob = new Blob([cvContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Irfan_Ullah_Khan_CV.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }
 </script>
 
 </body>
